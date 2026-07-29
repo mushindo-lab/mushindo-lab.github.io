@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Analytics Services | Organize Your Business Data into Metrics, KPIs and Actions</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for visual anchors/icons -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <script src="script.js"></script>
-
+    <!-- FontAwesome (corrected CDN path) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -40,76 +36,72 @@
             </div>
 
             <!-- Clickable Hero Container -->
-<div class="hero-visual" id="portfolioTrigger" style="cursor: pointer;">
-    <!-- Visual placeholder mimicking a data dashboard layout -->
-    <div class="mock-dashboard">
-        <div class="bar bar-1"></div>
-        <div class="bar bar-2"></div>
-        <div class="bar bar-3"></div>
-    </div>
-    <span style="display:block; text-align:center; font-size:0.85rem; color:#64748b; margin-top:0.5rem;">✨ Click to View Portfolio</span>
-</div>
-
-<!-- Magazine Modal Structure -->
-<div id="magazineModal" class="modal-overlay">
-    <div class="modal-content">
-        <button class="close-modal" id="closeModal">&times;</button>
-        
-        <!-- Book/Magazine Container -->
-        <div class="magazine">
-            <!-- Cover Page -->
-            <div class="page cover active" style="z-index: 5;">
-                <div class="page-front" style="background: #0f172a; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <h2>DataOps Portfolio</h2>
-                    <p>Analytics Case Studies</p>
-                    <small>Click pages to flip →</small>
+            <button type="button" class="hero-visual" id="portfolioTrigger" aria-haspopup="dialog" aria-controls="magazineModal">
+                <div class="mock-dashboard" aria-hidden="true">
+                    <div class="bar bar-1"></div>
+                    <div class="bar bar-2"></div>
+                    <div class="bar bar-3"></div>
                 </div>
-            </div>
-
-            <!-- Page 1 & 2 (Spread 1) -->
-            <div class="page" style="z-index: 4;">
-                <div class="page-front">
-                    <h3>BI Dashboards</h3>
-                    <!-- Replace with real screenshot path -->
-                    <div class="portfolio-img" style="background:#e2e8f0; height:70%; margin-top:10rem; display:flex; align-items:center; justify-content:center;">[Dashboard Screenshot]</div>
-                </div>
-                <div class="page-back">
-                    <h3>Predictive AI</h3>
-                    <!-- Replace with real screenshot path -->
-                    <div class="portfolio-img" style="background:#cbd5e1; height:70%; margin-top:10rem; display:flex; align-items:center; justify-content:center;">[ML Model Output]</div>
-                </div>
-            </div>
-
-            <!-- Page 3 & 4 (Spread 2) -->
-            <div class="page" style="z-index: 3;">
-                <div class="page-front">
-                    <h3>ETL Pipelines</h3>
-                    <div class="portfolio-img" style="background:#94a3b8; height:70%; margin-top:10rem; display:flex; align-items:center; justify-content:center;">[Cloud Architecture]</div>
-                </div>
-                <div class="page-back" style="background: #1e293b; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <h3>Let's Work Together</h3>
-                    <p>End of Portfolio</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+                <span class="hero-visual-caption">✨ Click to View Portfolio</span>
+            </button>
         </div>
     </section>
+
+    <!-- Portfolio Modal -->
+    <div id="magazineModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="magazineModalTitle" hidden>
+        <div class="modal-content">
+            <button type="button" class="close-modal" id="closeModal" aria-label="Close portfolio">×</button>
+
+            <div class="magazine" id="magazine">
+                <!-- Cover Page -->
+                <div class="page cover" data-page="0">
+                    <div class="page-face page-front cover-face">
+                        <h2 id="magazineModalTitle">DataOps Portfolio</h2>
+                        <p>Analytics Case Studies</p>
+                        <small>Click pages to flip →</small>
+                    </div>
+                </div>
+
+                <!-- Page 1 & 2 (Spread 1) -->
+                <div class="page" data-page="1">
+                    <div class="page-face page-front">
+                        <h3>BI Dashboards</h3>
+                        <div class="portfolio-img" role="img" aria-label="Dashboard screenshot placeholder">Dashboard Screenshot</div>
+                    </div>
+                    <div class="page-face page-back">
+                        <h3>Predictive AI</h3>
+                        <div class="portfolio-img" role="img" aria-label="Machine learning model output placeholder">ML Model Output</div>
+                    </div>
+                </div>
+
+                <!-- Page 3 & 4 (Spread 2) -->
+                <div class="page" data-page="2">
+                    <div class="page-face page-front">
+                        <h3>ETL Pipelines</h3>
+                        <div class="portfolio-img" role="img" aria-label="Cloud architecture diagram placeholder">Cloud Architecture</div>
+                    </div>
+                    <div class="page-face page-back closing-face">
+                        <h3>Let's Work Together</h3>
+                        <p>End of Portfolio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Impact Metrics Section -->
     <section id="metrics" class="metrics-bar">
         <div class="container metrics-grid">
             <div class="metric-item">
-                <!-- <h3>99.9%</h3> -->
+                <h3>99.9%</h3>
                 <p>Pipeline Accuracy</p>
             </div>
             <div class="metric-item">
-                <!-- <h3>10x</h3> -->
+                <h3>10x</h3>
                 <p>Faster Reporting</p>
             </div>
             <div class="metric-item">
-               <!--  <h3>$2.4M</h3> -->
+                <h3>$2.4M</h3>
                 <p>Average Client ROI</p>
             </div>
         </div>
@@ -119,27 +111,23 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
-                <h2>Our Data Engineering & Analytics Services</h2>
+                <h2>Our Data Engineering &amp; Analytics Services</h2>
                 <p>Enterprise solutions scaled to your organizational infrastructure.</p>
             </div>
-            
+
             <div class="services-grid">
-                <!-- Service 1 -->
-                 <div class="service-card">
-                    <div class="icon-wrapper"><i class="fa-solid fa-database"></i></div>
-                    <h3>Data Warehousing</h3>
-                    <p>Clean ETL pipelines migrating legacy storage architecture into cloud infrastructures</p>
-                </div>
-                <!-- Service 2 -->
                 <div class="service-card">
-                    <div class="icon-wrapper"><i class="fa-solid fa-brain"></i></div>
+                    <div class="icon-wrapper"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+                    <h3>Data Warehousing</h3>
+                    <p>Clean ETL pipelines migrating legacy storage architecture into cloud infrastructures.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
                     <h3>Predictive Modeling</h3>
                     <p>Custom machine learning applications optimized for customer churn and revenue forecasting.</p>
                 </div>
-                <!-- Service 3 -->
-
                 <div class="service-card">
-                    <div class="icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="icon-wrapper"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
                     <h3>Business Intelligence</h3>
                     <p>Interactive engineering of real-time operational and executive dashboards using PowerBI integrations.</p>
                 </div>
@@ -154,24 +142,25 @@
                 <h2>Scope Your Analytics Project</h2>
                 <p>Submit your business and infrastructure requirements for a custom technical proposal.</p>
             </div>
-            <form class="project-form">
+            <form class="project-form" id="projectForm" novalidate>
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input type="text" id="name" required placeholder="John Doe">
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
                 </div>
                 <div class="form-group">
                     <label for="email">Corporate Email</label>
-                    <input type="email" id="email" required placeholder="john@company.com">
+                    <input type="email" id="email" name="email" required placeholder="john@company.com">
                 </div>
                 <div class="form-group">
                     <label for="service-type">Primary Requirement</label>
-                    <select id="service-type">
-                        <option value="bi">Dashboard & BI Development</option>
-                        <option value="etl">ETL & Cloud Warehousing</option>
+                    <select id="service-type" name="service-type">
+                        <option value="bi">Dashboard &amp; BI Development</option>
+                        <option value="etl">ETL &amp; Cloud Warehousing</option>
                         <option value="ai">Predictive AI Implementations</option>
                     </select>
                 </div>
                 <button type="submit" class="btn-submit">Request Free Data Audit</button>
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
             </form>
         </div>
     </section>
@@ -179,7 +168,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>&copy; 2026 DataPulse Analytics. Built with clean semantic markup.</p>
+            <p>&copy; 2026 Mushindo Datalabs. Built with clean semantic markup.</p>
         </div>
     </footer>
 
