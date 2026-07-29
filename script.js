@@ -5,23 +5,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * Portfolio modal: open/close, click-outside, Escape key,
- * and page-flip interaction for the magazine spreads.
+ * and Prev/Next navigation through the portfolio slides.
  */
 function initPortfolioModal() {
     const trigger = document.getElementById('portfolioTrigger');
     const modal = document.getElementById('magazineModal');
     const closeBtn = document.getElementById('closeModal');
-    const pages = Array.from(document.querySelectorAll('.magazine .page'));
+    const track = document.getElementById('magazineTrack');
+    const slides = track ? Array.from(track.children) : [];
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    const counter = document.getElementById('slideCounter');
 
-    if (!trigger || !modal || !closeBtn) return;
+    if (!trigger || !modal || !closeBtn || !track) return;
 
     let lastFocused = null;
+    let currentIndex = 0;
 
-    // Stack pages in document order so the first page (cover) renders on
-    // top until it's flipped away, revealing the spread beneath it.
-    pages.forEach((page, index) => {
-        page.style.zIndex = pages.length - index;
-    });
+    const render = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        if (counter) counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+        if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        if (nextBtn) nextBtn.disabled = currentIndex === slides.length - 1;
+    };
+
+    const goTo = (index) => {
+        currentIndex = Math.max(0, Math.min(slides.length - 1, index));
+        render();
+    };
 
     const openModal = () => {
         lastFocused = document.activeElement;
@@ -33,12 +44,8 @@ function initPortfolioModal() {
     const closeModal = () => {
         modal.hidden = true;
         document.body.style.overflow = '';
-        resetPages();
+        goTo(0);
         if (lastFocused) lastFocused.focus();
-    };
-
-    const resetPages = () => {
-        pages.forEach((page) => page.classList.remove('flipped'));
     };
 
     trigger.addEventListener('click', openModal);
@@ -49,15 +56,16 @@ function initPortfolioModal() {
     });
 
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !modal.hidden) closeModal();
+        if (modal.hidden) return;
+        if (event.key === 'Escape') closeModal();
+        if (event.key === 'ArrowRight') goTo(currentIndex + 1);
+        if (event.key === 'ArrowLeft') goTo(currentIndex - 1);
     });
 
-    // Flip a page forward on click; click again to flip it back.
-    pages.forEach((page) => {
-        page.addEventListener('click', () => {
-            page.classList.toggle('flipped');
-        });
-    });
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+    render();
 }
 
 /**
