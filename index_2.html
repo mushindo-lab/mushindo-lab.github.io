@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analytics Services | Transform Your Business Metrics</title>
+    <title>Data Analytics Services | Organize Your Business Data into Metrics, KPIs and Actions</title>
     <link rel="stylesheet" href="style.css">
     <!-- FontAwesome for visual anchors/icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
@@ -16,7 +16,7 @@
     <!-- Header Navigation -->
     <header class="navbar">
         <div class="container flex-header">
-            <a href="#" class="logo"><span>Data</span>Pulse</a>
+            <a href="#" class="logo"><span>Mushindo</span>Datalabs</a>
             <nav class="nav-links">
                 <a href="#services">Services</a>
                 <a href="#metrics">Impact</a>
@@ -30,20 +30,68 @@
         <div class="container hero-grid">
             <div class="hero-text">
                 <h1>Turn Raw Data Into <span>Predictive Insights</span></h1>
-                <p>We build robust data pipelines, interactive visualization dashboards, and machine learning models to accelerate your strategic decision-making.</p>
+                <p>We build robust data pipelines, semantic models and interactive visualization dashboards to accelerate your strategic decision-making.</p>
                 <div class="hero-cta">
                     <a href="#services" class="btn-primary">Explore Services</a>
                     <a href="#contact" class="btn-secondary">Talk to an Analyst</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <!-- Visual placeholder mimicking a data dashboard layout -->
-                <div class="mock-dashboard">
-                    <div class="bar bar-1"></div>
-                    <div class="bar bar-2"></div>
-                    <div class="bar bar-3"></div>
+
+            <!-- Clickable Hero Container -->
+<div class="hero-visual" id="portfolioTrigger" style="cursor: pointer;">
+    <!-- Visual placeholder mimicking a data dashboard layout -->
+    <div class="mock-dashboard">
+        <div class="bar bar-1"></div>
+        <div class="bar bar-2"></div>
+        <div class="bar bar-3"></div>
+    </div>
+    <span style="display:block; text-align:center; font-size:0.85rem; color:#64748b; margin-top:0.5rem;">✨ Click to View Portfolio</span>
+</div>
+
+<!-- Magazine Modal Structure -->
+<div id="magazineModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-modal" id="closeModal">&times;</button>
+        
+        <!-- Book/Magazine Container -->
+        <div class="magazine">
+            <!-- Cover Page -->
+            <div class="page cover active" style="z-index: 5;">
+                <div class="page-front" style="background: #0f172a; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h2>DataOps Portfolio</h2>
+                    <p>Analytics Case Studies</p>
+                    <small>Click pages to flip →</small>
                 </div>
             </div>
+
+            <!-- Page 1 & 2 (Spread 1) -->
+            <div class="page" style="z-index: 4;">
+                <div class="page-front">
+                    <h3>BI Dashboards</h3>
+                    <!-- Replace with real screenshot path -->
+                    <div class="portfolio-img" style="background:#e2e8f0; height:70%; margin-top:10rem; display:flex; align-items:center; justify-content:center;">[Dashboard Screenshot]</div>
+                </div>
+                <div class="page-back">
+                    <h3>Predictive AI</h3>
+                    <!-- Replace with real screenshot path -->
+                    <div class="portfolio-img" style="background:#cbd5e1; height:70%; margin-top:10rem; display:flex; align-items:center; justify-content:center;">[ML Model Output]</div>
+                </div>
+            </div>
+
+            <!-- Page 3 & 4 (Spread 2) -->
+            <div class="page" style="z-index: 3;">
+                <div class="page-front">
+                    <h3>ETL Pipelines</h3>
+                    <div class="portfolio-img" style="background:#94a3b8; height:70%; margin-top:10rem; display:flex; align-items:center; justify-content:center;">[Cloud Architecture]</div>
+                </div>
+                <div class="page-back" style="background: #1e293b; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h3>Let's Work Together</h3>
+                    <p>End of Portfolio</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
         </div>
     </section>
 
@@ -51,15 +99,15 @@
     <section id="metrics" class="metrics-bar">
         <div class="container metrics-grid">
             <div class="metric-item">
-                <h3>99.9%</h3>
+                <!-- <h3>99.9%</h3> -->
                 <p>Pipeline Accuracy</p>
             </div>
             <div class="metric-item">
-                <h3>10x</h3>
+                <!-- <h3>10x</h3> -->
                 <p>Faster Reporting</p>
             </div>
             <div class="metric-item">
-                <h3>$2.4M</h3>
+               <!--  <h3>$2.4M</h3> -->
                 <p>Average Client ROI</p>
             </div>
         </div>
@@ -75,22 +123,23 @@
             
             <div class="services-grid">
                 <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>Business Intelligence</h3>
-                    <p>Interactive engineering of real-time executive dashboards using PowerBI and Tableau integrations.</p>
-                </div>
-                <!-- Service 2 -->
-                <div class="service-card">
+                 <div class="service-card">
                     <div class="icon-wrapper"><i class="fa-solid fa-database"></i></div>
                     <h3>Data Warehousing</h3>
-                    <p>Clean ETL pipelines migrating legacy storage architecture into cloud infrastructures like Snowflake.</p>
+                    <p>Clean ETL pipelines migrating legacy storage architecture into cloud infrastructures</p>
                 </div>
-                <!-- Service 3 -->
+                <!-- Service 2 -->
                 <div class="service-card">
                     <div class="icon-wrapper"><i class="fa-solid fa-brain"></i></div>
                     <h3>Predictive Modeling</h3>
                     <p>Custom machine learning applications optimized for customer churn and revenue forecasting.</p>
+                </div>
+                <!-- Service 3 -->
+
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Business Intelligence</h3>
+                    <p>Interactive engineering of real-time operational and executive dashboards using PowerBI integrations.</p>
                 </div>
             </div>
         </div>
@@ -101,7 +150,7 @@
         <div class="container small-container">
             <div class="section-title">
                 <h2>Scope Your Analytics Project</h2>
-                <p>Submit your infrastructure requirements for a custom technical proposal.</p>
+                <p>Submit your business and infrastructure requirements for a custom technical proposal.</p>
             </div>
             <form class="project-form">
                 <div class="form-group">
