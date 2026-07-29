@@ -52,39 +52,44 @@
         <div class="modal-content">
             <button type="button" class="close-modal" id="closeModal" aria-label="Close portfolio">×</button>
 
-            <div class="magazine" id="magazine">
-                <!-- Cover Page -->
-                <div class="page cover" data-page="0">
-                    <div class="page-face page-front cover-face">
+            <div class="magazine-viewport">
+                <div class="magazine-track" id="magazineTrack">
+                    <!-- Slide 0: Cover -->
+                    <div class="slide cover-face">
                         <h2 id="magazineModalTitle">DataOps Portfolio</h2>
                         <p>Analytics Case Studies</p>
-                        <small>Click pages to flip →</small>
                     </div>
-                </div>
 
-                <!-- Page 1 & 2 (Spread 1) -->
-                <div class="page" data-page="1">
-                    <div class="page-face page-front">
+                    <!-- Slide 1 -->
+                    <div class="slide">
                         <h3>BI Dashboards</h3>
                         <div class="portfolio-img" role="img" aria-label="Dashboard screenshot placeholder">Dashboard Screenshot</div>
                     </div>
-                    <div class="page-face page-back">
+
+                    <!-- Slide 2 -->
+                    <div class="slide">
                         <h3>Predictive AI</h3>
                         <div class="portfolio-img" role="img" aria-label="Machine learning model output placeholder">ML Model Output</div>
                     </div>
-                </div>
 
-                <!-- Page 3 & 4 (Spread 2) -->
-                <div class="page" data-page="2">
-                    <div class="page-face page-front">
+                    <!-- Slide 3 -->
+                    <div class="slide">
                         <h3>ETL Pipelines</h3>
                         <div class="portfolio-img" role="img" aria-label="Cloud architecture diagram placeholder">Cloud Architecture</div>
                     </div>
-                    <div class="page-face page-back closing-face">
+
+                    <!-- Slide 4: Closing -->
+                    <div class="slide closing-face">
                         <h3>Let's Work Together</h3>
                         <p>End of Portfolio</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="magazine-nav">
+                <button type="button" class="nav-btn" id="prevSlide" aria-label="Previous page">&larr;</button>
+                <span class="slide-counter" id="slideCounter" aria-live="polite">1 / 5</span>
+                <button type="button" class="nav-btn" id="nextSlide" aria-label="Next page">&rarr;</button>
             </div>
         </div>
     </div>
