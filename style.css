@@ -235,7 +235,7 @@ h1, h2, h3 { line-height: 1.15; margin: 0 0 0.75rem; }
 
 .magazine-viewport {
     position: relative;
-    height: 420px;
+    height: 550px;
     overflow: hidden;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-modal);
