@@ -17,6 +17,12 @@ function initPortfolioModal() {
 
     let lastFocused = null;
 
+    // Stack pages in document order so the first page (cover) renders on
+    // top until it's flipped away, revealing the spread beneath it.
+    pages.forEach((page, index) => {
+        page.style.zIndex = pages.length - index;
+    });
+
     const openModal = () => {
         lastFocused = document.activeElement;
         modal.hidden = false;
