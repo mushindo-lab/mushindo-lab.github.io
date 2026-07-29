@@ -233,42 +233,32 @@ h1, h2, h3 { line-height: 1.15; margin: 0 0 0.75rem; }
     cursor: pointer;
 }
 
-.magazine {
+.magazine-viewport {
     position: relative;
     height: 420px;
-    perspective: 2400px;
+    overflow: hidden;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-modal);
-}
-
-.page {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
-    transform-origin: left center;
-}
-
-.page.flipped { transform: rotateY(-180deg); }
-
-.page-face {
-    grid-area: 1 / 1;
-    backface-visibility: hidden;
-    background: var(--color-white);
-    border-radius: var(--radius-md);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     border: 1px solid var(--color-border);
 }
 
-.page-back { transform: rotateY(180deg); }
+.magazine-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease;
+}
+
+.slide {
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--color-white);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide h3 { margin-top: 1.25rem; }
 
 .cover-face,
 .closing-face {
@@ -279,7 +269,40 @@ h1, h2, h3 { line-height: 1.15; margin: 0 0 0.75rem; }
     text-align: center;
 }
 
-.cover-face small { color: var(--color-slate-500); margin-top: 0.5rem; }
+.magazine-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+.nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.nav-btn:hover { background: var(--color-surface); transform: translateY(-1px); }
+
+.nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.slide-counter {
+    color: var(--color-white);
+    font-size: 0.9rem;
+    min-width: 3.5rem;
+    text-align: center;
+}
 
 .portfolio-img {
     flex: 1;
@@ -434,13 +457,13 @@ footer p {
     .nav-links { gap: 1rem; font-size: 0.85rem; }
     .services-grid { grid-template-columns: 1fr; }
     .metrics-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .magazine { height: 360px; }
+    .magazine-viewport { height: 360px; }
 }
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .page, .hero-visual, .service-card, .btn-primary, .btn-secondary, .btn-submit {
+    .magazine-track, .hero-visual, .service-card, .btn-primary, .btn-secondary, .btn-submit {
         transition: none;
     }
 }
